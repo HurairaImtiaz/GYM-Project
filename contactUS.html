@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: black;
+            color: goldenrod;
+            position: relative;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            color: goldenrod;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background-color: #2d2d2d;
+            color: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            background-color: #383838;
+            color: white;
+            border-color: goldenrod;
+        }
+
+        .btn-primary {
+            background-color: goldenrod;
+            border-color: goldenrod;
+        }
+
+        .btn-primary:hover {
+            background-color: #b8860b;
+            border-color: #b8860b;
+        }
+
+        .btn-link {
+            color: goldenrod;
+        }
+
+        .bg-image {
+            background-image: url("gym-girl.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-image"></div>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                    placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // Replace with your EmailJS User ID and Template ID
+        const EMAILJS_USER_ID = 'your_emailjs_user_id';
+        const EMAILJS_TEMPLATE_ID = 'your_emailjs_template_id';
+
+        // Initialize EmailJS
+        emailjs.init(EMAILJS_USER_ID);
+
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const data = {
+                from_name: formData.get('name'),
+                from_email: formData.get('email'),
+                message: formData.get('message'),
+            };
+            sendEmail(data);
+        });
+
+        // Function to send email
+        function sendEmail(data) {
+            emailjs.send('default_service', EMAILJS_TEMPLATE_ID, data)
+                .then(function (response) {
+                    alert('Message sent successfully!');
+                }, function (error) {
+                    alert('Oops, something went wrong. Please try again later.');
+                    console.log('Error:', error);
+                });
+        }
+    </script>
+</body>
+
+</html>
