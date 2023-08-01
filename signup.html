@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In and Sign Up</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: black;
+            color: goldenrod;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            color: goldenrod;
+        }
+
+        .form-group input {
+            background-color: #2d2d2d;
+            color: white;
+        }
+
+        .form-group input:focus {
+            background-color: #383838;
+            color: white;
+            border-color: goldenrod;
+        }
+
+        .btn-primary {
+            background-color: goldenrod;
+            border-color: goldenrod;
+        }
+
+        .btn-primary:hover {
+            background-color: #b8860b;
+            border-color: #b8860b;
+        }
+
+        .btn-link {
+            color: goldenrod;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        
+
+        <!-- Sign Up Form -->
+        <h2 class="mt-4">Start Building Yourself</h2>
+        <form>
+            <div class="form-group">
+                <label for="signup-email">Email address</label>
+                <input type="email" class="form-control" id="signup-email" aria-describedby="emailHelp"
+                    placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="signup-password">Password</label>
+                <input type="password" class="form-control" id="signup-password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" class="form-control" id="confirm-password" placeholder="Confirm Password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
