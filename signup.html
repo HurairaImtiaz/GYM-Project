@@ -19,6 +19,7 @@
             padding: 20px;
             background-color: #1a1a1a;
             border-radius: 8px;
+            position: relative;
         }
 
         h2 {
@@ -54,15 +55,29 @@
         .btn-link {
             color: goldenrod;
         }
+
+        .bg-image {
+            background-image: url("bg.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.5; /* You can adjust the opacity of the background image */
+        }
     </style>
 </head>
 
 <body>
+    <div class="bg-image"></div>
     <div class="container">
-        
+       
 
         <!-- Sign Up Form -->
-        <h2 class="mt-4">Start Building Yourself</h2>
+        <h2 class="mt-4">Sign Up</h2>
         <form>
             <div class="form-group">
                 <label for="signup-email">Email address</label>
